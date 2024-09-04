@@ -71,9 +71,9 @@ class IGrouper {
  private:
 };
 
-class FastGrouper : IGrouper {
+class GreedyGrouper : IGrouper {
  public:
-  FastGrouper(int16_t number_of_replicas)
+  GreedyGrouper(int16_t number_of_replicas)
       : _number_of_replicas(number_of_replicas) {}
 
   std::unique_ptr<GroupedServerClasterData> Group(
