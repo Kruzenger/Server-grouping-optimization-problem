@@ -5,7 +5,7 @@
 Данный софт может считать данные из терминала и файла JSON. 
 Для чтения из файла JSON в метод ```JsonServersParser::Parse()``` нужно передать путь, относительно корня проекта до файла. По умолчанию используется ```./input.json```.  Для файла JSON формат данных таков:
 
-```
+```json
 {
   "Servers": [
     {
@@ -49,7 +49,7 @@ A_i B_i // A_i - имя сервера, B_i - размер
 
 Метод ```GreedyGrouper::Group()``` для вызова жадного алгоритма группировки является статическим и принимает 2 параметра - ```ServerClasterData``` с информацией о серверах в кластере и ``` int16_t number_of_replicas ``` с информацией о количестве репликаций. Вы можете расширять библиотеку и добавлять свои методы группировки, аналогичным образом.
 
-```
+```cpp
 #include "./server_infrastructure_utils.h"
 
 int main() {
@@ -63,20 +63,20 @@ int main() {
 ### О структурах данных
 В данной библиотеке используются 3 структуры данных:
 
-```
+```cpp
 struct ServerData {
   std::string name;
   int64_t size;
 };
 ```
 
-```
+```cpp
 struct ServerClasterData {
   std::vector<ServerData> servers;
 };
 ```
 
-```
+```cpp
 struct GroupedServerClasterData {
   std::vector<std::vector<ServerData>> cores;
 };
