@@ -7,7 +7,7 @@ namespace server_infrastructure_utils {
 
 struct ServerData {
   std::string name;
-  int16_t size;
+  int64_t size;
 
   friend inline bool operator<(const ServerData& lhs, const ServerData& rhs) {
     return lhs.size < rhs.size;
@@ -48,39 +48,23 @@ struct GroupedServerClasterData {
   }
 };
 
-class IInputParser {
+class JsonServersParser {
  public:
-  virtual std::unique_ptr<ServerClasterData> Parse() = 0;
-};
-
-class JsonParser : IInputParser {
- public:
-  virtual std::unique_ptr<ServerClasterData> Parse() override;
-};
-
-class TerminalParser : IInputParser {
- public:
-  virtual std::unique_ptr<ServerClasterData> Parse() override;
-};
-
-class IGrouper {
- public:
-  virtual std::unique_ptr<GroupedServerClasterData> Group(
-      const ServerClasterData& data) = 0;
+  static ServerClasterData Parse();
 
  private:
+  static int64_t ParseSize(const std::string& s_size);
 };
 
-class GreedyGrouper : IGrouper {
+class TerminalServersParser {
  public:
-  GreedyGrouper(int16_t number_of_replicas)
-      : _number_of_replicas(number_of_replicas) {}
+  static ServerClasterData Parse();
+};
 
-  std::unique_ptr<GroupedServerClasterData> Group(
-      const ServerClasterData& data) override;
-
- private:
-  int16_t _number_of_replicas;
+class GreedyGrouper {
+ public:
+  static GroupedServerClasterData Group(const ServerClasterData& data,
+                                        const int16_t& number_of_replicas);
 };
 
 }  // namespace server_infrastructure_utils

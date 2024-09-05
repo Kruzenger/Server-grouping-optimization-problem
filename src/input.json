@@ -1,0 +1,24 @@
+{
+  "Servers": [
+    {
+      "name": "Server_1",
+      "size": "100 TB"
+    },
+    {
+      "name": "Server_2",
+      "size": "50 TB"
+    },
+    {
+      "name": "Server_3",
+      "size": "20 TB"
+    },
+    {
+      "name": "Server_4",
+      "size": "40 TB"
+    },
+    {
+      "name": "Server_5",
+      "size": "90 TB"
+    }
+  ]
+}
