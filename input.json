@@ -19,6 +19,146 @@
     {
       "name": "Server_5",
       "size": "90 TB"
+    },
+    {
+      "name": "Server_6",
+      "size": "130 TB"
+    },
+    {
+      "name": "Server_7",
+      "size": "15 TB"
+    },
+    {
+      "name": "Server_8",
+      "size": "45 TB"
+    },
+    {
+      "name": "Server_9",
+      "size": "40 TB"
+    },
+    {
+      "name": "Server_10",
+      "size": "95 TB"
+    },
+    {
+      "name": "Server_11",
+      "size": "100 TB"
+    },
+    {
+      "name": "Server_12",
+      "size": "50 TB"
+    },
+    {
+      "name": "Server_13",
+      "size": "20 TB"
+    },
+    {
+      "name": "Server_14",
+      "size": "40 TB"
+    },
+    {
+      "name": "Server_15",
+      "size": "90 TB"
+    },
+    {
+      "name": "Server_16",
+      "size": "130 TB"
+    },
+    {
+      "name": "Server_17",
+      "size": "15 TB"
+    },
+    {
+      "name": "Server_18",
+      "size": "45 TB"
+    },
+    {
+      "name": "Server_19",
+      "size": "40 TB"
+    },
+    {
+      "name": "Server_20",
+      "size": "95 TB"
+    },
+    {
+      "name": "Server_21",
+      "size": "100 TB"
+    },
+    {
+      "name": "Server_22",
+      "size": "50 TB"
+    },
+    {
+      "name": "Server_23",
+      "size": "20 TB"
+    },
+    {
+      "name": "Server_24",
+      "size": "40 TB"
+    },
+    {
+      "name": "Server_25",
+      "size": "90 TB"
+    },
+    {
+      "name": "Server_26",
+      "size": "130 TB"
+    },
+    {
+      "name": "Server_27",
+      "size": "115 TB"
+    },
+    {
+      "name": "Server_28",
+      "size": "145 TB"
+    },
+    {
+      "name": "Server_29",
+      "size": "140 TB"
+    },
+    {
+      "name": "Server_30",
+      "size": "195 TB"
+    },
+    {
+      "name": "Server_31",
+      "size": "100 TB"
+    },
+    {
+      "name": "Server_32",
+      "size": "550 TB"
+    },
+    {
+      "name": "Server_33",
+      "size": "20 TB"
+    },
+    {
+      "name": "Server_34",
+      "size": "40 TB"
+    },
+    {
+      "name": "Server_35",
+      "size": "90 TB"
+    },
+    {
+      "name": "Server_36",
+      "size": "1130 TB"
+    },
+    {
+      "name": "Server_37",
+      "size": "15 TB"
+    },
+    {
+      "name": "Server_38",
+      "size": "45 TB"
+    },
+    {
+      "name": "Server_39",
+      "size": "420 TB"
+    },
+    {
+      "name": "Server_40",
+      "size": "95 TB"
     }
   ]
 }

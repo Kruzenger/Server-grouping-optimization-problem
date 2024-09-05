@@ -35,14 +35,14 @@ struct ServerData {
   }
 };
 
-struct ServerClasterData {
+struct ClasterData {
   std::vector<ServerData> servers;
 };
 
-struct GroupedServerClasterData {
+struct GroupedServerCores {
   std::vector<std::vector<ServerData>> cores;
 
-  GroupedServerClasterData(int16_t number_of_replicas) {
+  GroupedServerCores(int16_t number_of_replicas) {
     cores = std::vector<std::vector<ServerData>>(number_of_replicas,
                                                  std::vector<ServerData>());
   }
@@ -50,8 +50,7 @@ struct GroupedServerClasterData {
 
 class JsonServersParser {
  public:
-  static ServerClasterData Parse(
-      const std::string& path_to_file = "./input.json");
+  static ClasterData Parse(const std::string& path_to_file = "./input.json");
 
  private:
   static int64_t ParseSize(const std::string& s_size);
@@ -59,13 +58,13 @@ class JsonServersParser {
 
 class TerminalServersParser {
  public:
-  static ServerClasterData Parse();
+  static ClasterData Parse();
 };
 
 class GreedyGrouper {
  public:
-  static GroupedServerClasterData Group(const ServerClasterData& data,
-                                        const int16_t& number_of_replicas);
+  static GroupedServerCores Group(const ClasterData& data,
+                                  const int16_t& number_of_replicas);
 };
 
 }  // namespace server_infrastructure_utils

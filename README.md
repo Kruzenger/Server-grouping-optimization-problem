@@ -49,7 +49,7 @@ A_i B_i // A_i - имя сервера, B_i - размер
 Весь функцинал лежит в ``` namespace server_infrastructure_utils ```.
 Пример использования библиотеки для группировки серверов заданных через JSON.
 
-Метод ```GreedyGrouper::Group()``` для вызова жадного алгоритма группировки является статическим и принимает 2 параметра - ```ServerClasterData``` с информацией о серверах в кластере и ``` int16_t number_of_replicas ``` с информацией о количестве репликаций. Вы можете расширять библиотеку и добавлять свои методы группировки, аналогичным образом.
+Метод ```GreedyGrouper::Group()``` для вызова жадного алгоритма группировки является статическим и принимает 2 параметра - ```ClasterData``` с информацией о серверах в кластере и ``` int16_t number_of_replicas ``` с информацией о количестве репликаций. Вы можете расширять библиотеку и добавлять свои методы группировки, аналогичным образом.
 
 ```cpp
 #include "./server_infrastructure_utils.h"
@@ -73,13 +73,13 @@ struct ServerData {
 ```
 
 ```cpp
-struct ServerClasterData {
+struct ClasterData {
   std::vector<ServerData> servers;
 };
 ```
 
 ```cpp
-struct GroupedServerClasterData {
+struct GroupedServerCores {
   std::vector<std::vector<ServerData>> cores;
 };
 ```

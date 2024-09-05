@@ -15,8 +15,8 @@ int64_t JsonServersParser::ParseSize(const std::string& s_size) {
   return size;
 }
 
-ServerClasterData JsonServersParser::Parse(const std::string& path_to_file) {
-  ServerClasterData parsed_data = ServerClasterData();
+ClasterData JsonServersParser::Parse(const std::string& path_to_file) {
+  ClasterData parsed_data = ClasterData();
   std::ifstream file("../" + path_to_file);
   nlohmann::json data = nlohmann::json::parse(file);
 
@@ -37,8 +37,8 @@ ServerClasterData JsonServersParser::Parse(const std::string& path_to_file) {
   return parsed_data;
 }
 
-ServerClasterData TerminalServersParser::Parse() {
-  ServerClasterData parsed_data = ServerClasterData();
+ClasterData TerminalServersParser::Parse() {
+  ClasterData parsed_data = ClasterData();
 
   int16_t num_of_servers = 0;
   std::cin >> num_of_servers;
@@ -51,10 +51,9 @@ ServerClasterData TerminalServersParser::Parse() {
   return parsed_data;
 }
 
-GroupedServerClasterData GreedyGrouper::Group(
-    const ServerClasterData& data, const int16_t& number_of_replicas) {
-  GroupedServerClasterData result =
-      GroupedServerClasterData(number_of_replicas);
+GroupedServerCores GreedyGrouper::Group(const ClasterData& data,
+                                        const int16_t& number_of_replicas) {
+  GroupedServerCores result = GroupedServerCores(number_of_replicas);
 
   std::vector<ServerData> servers(data.servers.begin(), data.servers.end());
   std::sort(servers.begin(), servers.end(), std::greater<ServerData>());
