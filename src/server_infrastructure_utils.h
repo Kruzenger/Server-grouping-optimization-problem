@@ -50,7 +50,8 @@ struct GroupedServerClasterData {
 
 class JsonServersParser {
  public:
-  static ServerClasterData Parse();
+  static ServerClasterData Parse(
+      const std::string& path_to_file = "./input.json");
 
  private:
   static int64_t ParseSize(const std::string& s_size);
@@ -61,7 +62,10 @@ class TerminalServersParser {
   static ServerClasterData Parse();
 };
 
-static GroupedServerClasterData GreedyGroup(const ServerClasterData& data,
-                                            const int16_t& number_of_replicas);
+class GreedyGrouper {
+ public:
+  static GroupedServerClasterData Group(const ServerClasterData& data,
+                                        const int16_t& number_of_replicas);
+};
 
 }  // namespace server_infrastructure_utils
