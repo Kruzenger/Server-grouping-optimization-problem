@@ -2,6 +2,10 @@
 
 Написал и разработал Kruzenger (https://github.com/Kruzenger). 
 
+## Установка:
+Для работы с данной библиотекой вам может понадобиться установить дополнительный софт, а именно ```<nlohmann/json.hpp>``` для работы с JSON файлами.
+Для подключения этой библиотеки просто добавьте в ваш проект ```#include "your_path_to_lib/src/server_infrastructure_utils.h"``` 
+
 ## Документация
 ### Формат ввода данных
 Данный софт может считать данные из терминала и файла JSON. 
@@ -42,10 +46,6 @@ A_i B_i // A_i - имя сервера, B_i - размер
 ```
 
 ### API
-Для использования данного функционала используйте:
-```
-#include "./server_infrastructure_utils.h"
-```
 Весь функцинал лежит в ``` namespace server_infrastructure_utils ```.
 Пример использования библиотеки для группировки серверов заданных через JSON.
 
@@ -55,10 +55,10 @@ A_i B_i // A_i - имя сервера, B_i - размер
 #include "./server_infrastructure_utils.h"
 
 int main() {
-  int16_t number_of_replicas = 2;
+  int16_t number_of_cores = 2;
   server_infrastructure_utils::GreedyGrouper::Group(
       server_infrastructure_utils::JsonServersParser::Parse(),
-      number_of_replicas);
+      number_of_cores);
 }
 ```
 

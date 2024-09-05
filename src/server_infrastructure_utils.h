@@ -28,11 +28,7 @@ struct ServerData {
     return !(lhs == rhs);
   }
 
-  friend std::istream& operator>>(std::istream& is, ServerData& obj) {
-    std::cin >> obj.name;
-    std::cin >> obj.size;
-    return is;
-  }
+  friend std::istream& operator>>(std::istream& is, ServerData& obj);
 };
 
 struct ClasterData {
@@ -42,10 +38,13 @@ struct ClasterData {
 struct GroupedServerCores {
   std::vector<std::vector<ServerData>> cores;
 
-  GroupedServerCores(int16_t number_of_replicas) {
-    cores = std::vector<std::vector<ServerData>>(number_of_replicas,
-                                                 std::vector<ServerData>());
-  }
+  GroupedServerCores(int16_t number_of_replicas);
+  GroupedServerCores(const GroupedServerCores& other);
+  GroupedServerCores(GroupedServerCores&& other) noexcept;
+  ~GroupedServerCores() = default;
+
+  GroupedServerCores& operator=(const GroupedServerCores& other);
+  GroupedServerCores& operator=(GroupedServerCores&& other) noexcept;
 };
 
 class JsonServersParser {
