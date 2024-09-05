@@ -58,10 +58,13 @@ A_i B_i // A_i - имя сервера, B_i - размер
 #include "./server_infrastructure_utils.h"
 
 int main() {
-  int16_t number_of_cores = 2;
-  server_infrastructure_utils::GreedyGrouper::Group(
-      server_infrastructure_utils::JsonServersParser::Parse(),
-      number_of_cores);
+  int16_t number_of_cores = 5;
+  server_infrastructure_utils::GroupedServerCores cores =
+      server_infrastructure_utils::GreedyGrouper::Group(
+          server_infrastructure_utils::JsonServersParser::Parse(),
+          number_of_cores);
+
+  return 0;
 }
 ```
 
