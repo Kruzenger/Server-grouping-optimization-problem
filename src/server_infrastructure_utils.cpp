@@ -51,8 +51,8 @@ ServerClasterData TerminalServersParser::Parse() {
   return parsed_data;
 }
 
-GroupedServerClasterData GreedyGrouper::Group(
-    const ServerClasterData& data, const int16_t& number_of_replicas) {
+GroupedServerClasterData GreedyGroup(const ServerClasterData& data,
+                                     const int16_t& number_of_replicas) {
   GroupedServerClasterData result =
       GroupedServerClasterData(number_of_replicas);
 
@@ -67,7 +67,7 @@ GroupedServerClasterData GreedyGrouper::Group(
   // Here starts Greedy Algorithm
   for (ServerData server : servers) {
     auto minimum_iter = groups.begin();
-    result.shells[minimum_iter->second].push_back(server);
+    result.cores[minimum_iter->second].push_back(server);
     std::pair<int64_t, int16_t> changed_map_element = {
         minimum_iter->first + server.size, minimum_iter->second};
     groups.extract(minimum_iter);

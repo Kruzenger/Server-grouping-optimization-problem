@@ -40,11 +40,11 @@ struct ServerClasterData {
 };
 
 struct GroupedServerClasterData {
-  std::vector<std::vector<ServerData>> shells;
+  std::vector<std::vector<ServerData>> cores;
 
   GroupedServerClasterData(int16_t number_of_replicas) {
-    shells = std::vector<std::vector<ServerData>>(number_of_replicas,
-                                                  std::vector<ServerData>());
+    cores = std::vector<std::vector<ServerData>>(number_of_replicas,
+                                                 std::vector<ServerData>());
   }
 };
 
@@ -61,10 +61,7 @@ class TerminalServersParser {
   static ServerClasterData Parse();
 };
 
-class GreedyGrouper {
- public:
-  static GroupedServerClasterData Group(const ServerClasterData& data,
-                                        const int16_t& number_of_replicas);
-};
+static GroupedServerClasterData GreedyGroup(const ServerClasterData& data,
+                                            const int16_t& number_of_replicas);
 
 }  // namespace server_infrastructure_utils

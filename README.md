@@ -2,7 +2,8 @@
 
 ## Документация
 ### Формат ввода данных
-Данный софт может считать данные из терминала и файла JSON. Для файла JSON формат данных таков:
+Данный софт может считать данные из терминала и файла JSON. 
+Для файла JSON формат данных таков:
 
 ```
 {
@@ -36,6 +37,49 @@
 ```
 N //количество серверов
 A_i B_i // A_i - имя сервера, B_i - размер
+```
+
+### API
+Для использования данного функционала используйте:
+```
+#include "./server_infrastructure_utils.h"
+```
+Весь функцинал лежит в ``` namespace server_infrastructure_utils ```.
+Пример использования библиотеки для группировки серверов заданных через JSON.
+
+Метод ```GreedyGroup``` для вызова жадного алгоритма группировки является статическим и принимает 2 параметра - ```ServerClasterData``` с информацией о серверах в кластере и ``` int16_t number_of_replicas ``` с информацией о количестве репликаций. Вы можете расширять библиотеку и добавлять свои методы группировки, аналогичным образом.
+
+```
+#include "./server_infrastructure_utils.h"
+
+int main() {
+  int16_t number_of_replicas = 2;
+  server_infrastructure_utils::GreedyGroup(
+      server_infrastructure_utils::JsonServersParser::Parse(),
+      number_of_replicas);
+}
+```
+
+### О структурах данных
+В данной библиотеке используются 3 структуры данных:
+
+```
+struct ServerData {
+  std::string name;
+  int64_t size;
+};
+```
+
+```
+struct ServerClasterData {
+  std::vector<ServerData> servers;
+};
+```
+
+```
+struct GroupedServerClasterData {
+  std::vector<std::vector<ServerData>> cores;
+};
 ```
 
 ## Примечания Разработчика
